@@ -7,7 +7,7 @@ public class Group {
     private String name;
     private Set<User> users;
 
-    public Group(String name, Set<User> users) {
+    public Group(final String name, final Set<User> users) {
         this.name = name;
         this.users = users;
     }
@@ -16,7 +16,7 @@ public class Group {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -24,15 +24,15 @@ public class Group {
         return users;
     }
 
-    public void setUsers(Set<User> users) {
+    public void setUsers(final Set<User> users) {
         this.users = users;
     }
 
-    public void addUser(User user) {
+    public void addUser(final User user) {
         users.add(user);
     }
 
-    public void removeUser(User user) {
+    public void removeUser(final User user) {
         users.remove(user);
     }
 }

@@ -9,7 +9,7 @@ public class User {
     private Set<Permission> permissions;
     private Set<Group> groups;
     
-    public User(String username, UserDetails userDetails, Set<Permission> permissions, Set<Group> groups) {
+    public User(final String username, final UserDetails userDetails, final Set<Permission> permissions, final Set<Group> groups) {
         this.username = username;
         this.userDetails = userDetails;
         this.permissions = permissions;
@@ -20,7 +20,7 @@ public class User {
         return String.valueOf(username);
     }
 
-    public void setUsername(String username) {
+    public void setUsername(final String username) {
         this.username = username;
     }
 
@@ -28,7 +28,7 @@ public class User {
         return userDetails.clone();
     }
 
-    public void setUserDetails(UserDetails userDetails) {
+    public void setUserDetails(final UserDetails userDetails) {
         this.userDetails = userDetails;
     }
 
@@ -36,15 +36,15 @@ public class User {
         return Set.copyOf(permissions);
     }
 
-    public void setPermissions(Set<Permission> permissions) {
+    public void setPermissions(final Set<Permission> permissions) {
         this.permissions = permissions;
     }
 
-    public void addPermission(Permission permission) {
+    public void addPermission(final Permission permission) {
         permissions.add(permission);
     }
 
-    public void removePermission(Permission permission) {
+    public void removePermission(final Permission permission) {
         permissions.remove(permission);
     }
 
@@ -52,15 +52,15 @@ public class User {
         return Set.copyOf(groups);
     }
 
-    public void setGroups(Set<Group> groups) {
+    public void setGroups(final Set<Group> groups) {
         this.groups = groups;
     }
 
-    public void addGroup(Group group) {
+    public void addGroup(final Group group) {
         groups.add(group);
     }
 
-    public void removeGroup(Group group) {
+    public void removeGroup(final Group group) {
         groups.remove(group);
     }
 

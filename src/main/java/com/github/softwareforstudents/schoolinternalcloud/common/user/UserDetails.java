@@ -6,9 +6,9 @@ import java.time.LocalDate;
 
 public class UserDetails implements Cloneable {
 
-    private LocalDate birthdayDate;
+    private final LocalDate birthdayDate;
 
-    public UserDetails(LocalDate birthdayDate) {
+    public UserDetails(final LocalDate birthdayDate) {
         this.birthdayDate = birthdayDate;
     }
 
