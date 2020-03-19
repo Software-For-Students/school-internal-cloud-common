@@ -28,4 +28,18 @@ public final class ServiceIdentifier {
         return workerId;
     }
 
+    public String toJsonString() {
+        return new StringBuffer("{\"serviceName\":\"").append(getServiceName())
+            .append("\",\"serviceId\":\"").append(getServiceId())
+            .append("\",\"workerId\":\"").append(getWorkerId())
+            .append("\"}").toString();
+    }
+
+    @Override
+    public String toString() {
+        return new StringBuffer("[ServiceName]: ").append(getServiceName()).append(System.lineSeparator())
+                .append("[ServiceId]: ").append(getServiceId()).append(System.lineSeparator())
+                .append("[WorkerId]: ").append(getWorkerId()).toString();
+    }
+
 }
