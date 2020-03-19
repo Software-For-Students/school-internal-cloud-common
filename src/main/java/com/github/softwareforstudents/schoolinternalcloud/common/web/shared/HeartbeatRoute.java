@@ -9,7 +9,7 @@ import com.sun.net.httpserver.HttpExchange;
 public class HeartbeatRoute extends RouteHandler {
     
     @Override
-    public void handleGet(HttpExchange exchange) {
+    public void handleGet(final HttpExchange exchange) {
         try {
             exchange.sendResponseHeaders(HttpStatusCodes.OK.getStatusCode(), -1);
         } catch (IOException ex) {

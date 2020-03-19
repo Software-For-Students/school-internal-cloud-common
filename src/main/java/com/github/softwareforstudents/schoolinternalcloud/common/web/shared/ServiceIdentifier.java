@@ -5,11 +5,11 @@ import com.github.softwareforstudents.schoolinternalcloud.common.annotations.Not
 
 public final class ServiceIdentifier {
 
-    private String serviceName;
-    private int serviceId;
-    private int workerId;
+    private final String serviceName;
+    private final int serviceId;
+    private final int workerId;
 
-    public ServiceIdentifier(@NotNull String serviceName, int serviceId, int workerId) {
+    public ServiceIdentifier(@NotNull final String serviceName, final int serviceId, final int workerId) {
         this.serviceName = serviceName;
         this.serviceId = serviceId;
         this.workerId = workerId;
@@ -38,8 +38,8 @@ public final class ServiceIdentifier {
     @Override
     public String toString() {
         return new StringBuffer("[ServiceName]: ").append(getServiceName()).append(System.lineSeparator())
-                .append("[ServiceId]: ").append(getServiceId()).append(System.lineSeparator())
-                .append("[WorkerId]: ").append(getWorkerId()).toString();
+            .append("[ServiceId]: ").append(getServiceId()).append(System.lineSeparator())
+            .append("[WorkerId]: ").append(getWorkerId()).toString();
     }
 
 }

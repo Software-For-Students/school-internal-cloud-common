@@ -17,11 +17,11 @@ class Webservice implements AutoCloseable {
     private HttpServer httpServer;
     private Set<String> routes;
 
-    public Webservice(int port) {
+    public Webservice(final int port) {
         this(port, DEFAULT_TCP_CONNECTION_BACKLOG);
     }
 
-    public Webservice(int port, int connectionBacklog) {
+    public Webservice(final int port, final int connectionBacklog) {
         try {
             httpServer = HttpServer.create(new InetSocketAddress(port), connectionBacklog);
             routes = new HashSet<>();
@@ -38,7 +38,7 @@ class Webservice implements AutoCloseable {
         httpServer.stop(SERVER_STOP_WAIT_DELAY);
     }
 
-    public boolean registerRoute(@NotNull String path, @NotNull RouteHandler handler) {
+    public boolean registerRoute(@NotNull final String path, @NotNull final RouteHandler handler) {
         try {
             httpServer.createContext(path, handler);
             routes.add(path);
@@ -48,7 +48,7 @@ class Webservice implements AutoCloseable {
         }
     }
 
-    public boolean unregisterRoute(@NotNull String path) {
+    public boolean unregisterRoute(@NotNull final String path) {
         try {
             httpServer.removeContext(path);
             routes.remove(path);
