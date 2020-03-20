@@ -12,7 +12,7 @@ public class User {
     private Set<Permission> permissions;
     private Set<Group> groups;
     
-    public User(@NotNull String username, @NotNull UserDetails userDetails, @NotNull Set<Permission> permissions, @NotNull Set<Group> groups) {
+    public User(@NotNull final String username, @NotNull final UserDetails userDetails, @NotNull final Set<Permission> permissions, @NotNull final Set<Group> groups) {
         this.username = username;
         this.userDetails = userDetails;
         this.permissions = permissions;
@@ -24,7 +24,7 @@ public class User {
         return String.valueOf(username);
     }
 
-    public void setUsername(@NotNull String username) {
+    public void setUsername(@NotNull final String username) {
         this.username = username;
     }
 
@@ -33,7 +33,7 @@ public class User {
         return userDetails.clone();
     }
 
-    public void setUserDetails(@NotNull UserDetails userDetails) {
+    public void setUserDetails(@NotNull final UserDetails userDetails) {
         this.userDetails = userDetails;
     }
 
@@ -42,15 +42,15 @@ public class User {
         return Set.copyOf(permissions);
     }
 
-    public void setPermissions(@NotNull Set<Permission> permissions) {
+    public void setPermissions(@NotNull final Set<Permission> permissions) {
         this.permissions = permissions;
     }
 
-    public void addPermission(@NotNull Permission permission) {
+    public void addPermission(@NotNull final Permission permission) {
         permissions.add(permission);
     }
 
-    public void removePermission(@NotNull Permission permission) {
+    public void removePermission(@NotNull final Permission permission) {
         permissions.remove(permission);
     }
 
@@ -59,15 +59,15 @@ public class User {
         return Set.copyOf(groups);
     }
 
-    public void setGroups(@NotNull Set<Group> groups) {
+    public void setGroups(@NotNull final Set<Group> groups) {
         this.groups = groups;
     }
 
-    public void addGroup(@NotNull Group group) {
+    public void addGroup(@NotNull final Group group) {
         groups.add(group);
     }
 
-    public void removeGroup(@NotNull Group group) {
+    public void removeGroup(@NotNull final Group group) {
         groups.remove(group);
     }
 

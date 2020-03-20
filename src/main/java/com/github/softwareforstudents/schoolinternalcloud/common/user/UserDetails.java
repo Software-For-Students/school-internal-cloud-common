@@ -8,9 +8,9 @@ import com.github.softwareforstudents.schoolinternalcloud.common.annotations.Not
 
 public class UserDetails implements Cloneable {
 
-    private LocalDate birthdayDate;
+    private final LocalDate birthdayDate;
 
-    public UserDetails(@NotNull LocalDate birthdayDate) {
+    public UserDetails(@NotNull final LocalDate birthdayDate) {
         this.birthdayDate = birthdayDate;
     }
 

@@ -10,7 +10,7 @@ public class Group {
     private String name;
     private Set<User> users;
 
-    public Group(@NotNull String name, @NotNull Set<User> users) {
+    public Group(@NotNull final String name, @NotNull final Set<User> users) {
         this.name = name;
         this.users = users;
     }
@@ -20,7 +20,7 @@ public class Group {
         return String.valueOf(name);
     }
 
-    public void setName(@NotNull String name) {
+    public void setName(@NotNull final String name) {
         this.name = name;
     }
 
@@ -29,15 +29,15 @@ public class Group {
         return Set.copyOf(users);
     }
 
-    public void setUsers(@NotNull Set<User> users) {
+    public void setUsers(@NotNull final Set<User> users) {
         this.users = users;
     }
 
-    public void addUser(@NotNull User user) {
+    public void addUser(@NotNull final User user) {
         users.add(user);
     }
 
-    public void removeUser(@NotNull User user) {
+    public void removeUser(@NotNull final User user) {
         users.remove(user);
     }
 }
