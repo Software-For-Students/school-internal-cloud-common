@@ -1,4 +1,4 @@
-package com.github.softwareforstudents.schoolinternalcloud.common.web.shared;
+package com.github.softwareforstudents.schoolinternalcloud.common.service;
 
 import com.github.softwareforstudents.schoolinternalcloud.common.annotations.Immutable;
 import com.github.softwareforstudents.schoolinternalcloud.common.annotations.NotNull;
