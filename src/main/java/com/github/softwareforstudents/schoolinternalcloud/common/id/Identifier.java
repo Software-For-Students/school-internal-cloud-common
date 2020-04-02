@@ -16,12 +16,12 @@ public class Identifier {
     //      1 bit                  41 bits                   5 bits  5 bits     12 bits
     // max. value                (~69 years)                  (32)    (32)      (4096)
 
-    final static int TIMESTAMP_BITS = 41;
-    final static int SERVICE_ID_BITS = 5;
-    final static int WORKER_ID_BITS = 5;
-    final static int INCREMENT_BITS = 12;
+    private final static int TIMESTAMP_BITS = 41;
+    private final static int SERVICE_ID_BITS = 5;
+    private final static int WORKER_ID_BITS = 5;
+    private final static int INCREMENT_BITS = 12;
 
-    final static long MAX_INCREMENT = (1L << INCREMENT_BITS) - 1;
+    protected final static long MAX_INCREMENT = (1L << INCREMENT_BITS) - 1;
 
     private final long timestamp;
     private final int serviceId;
@@ -79,7 +79,7 @@ public class Identifier {
             .append("]").toString();
     }
 
-    public static Identifier parseIdentifier(long id) {
+    public static Identifier parseIdentifier(final long id) {
         return new Identifier(
             ((1L << TIMESTAMP_BITS) - 1) & (id >> INCREMENT_BITS + WORKER_ID_BITS + SERVICE_ID_BITS),
             ((1L << SERVICE_ID_BITS) - 1) & (id >> INCREMENT_BITS + WORKER_ID_BITS),

@@ -5,11 +5,11 @@ import com.github.softwareforstudents.schoolinternalcloud.common.annotations.Not
 
 public final class ServiceIdentifier {
 
-    private String serviceName;
-    private int serviceId;
-    private int workerId;
+    private final String serviceName;
+    private final int serviceId;
+    private final int workerId;
 
-    public ServiceIdentifier(@NotNull String serviceName, int serviceId, int workerId) {
+    public ServiceIdentifier(@NotNull final String serviceName, final int serviceId, final int workerId) {
         this.serviceName = serviceName;
         this.serviceId = serviceId;
         this.workerId = workerId;

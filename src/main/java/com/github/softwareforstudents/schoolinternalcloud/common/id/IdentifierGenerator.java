@@ -20,29 +20,32 @@ public class IdentifierGenerator {
         this.lastIncrementResetTime = getTimestamp();
     }
 
-    public synchronized long generateIdentifier() {
-        long currentTime = getTimestamp();
-        if (lastIncrementResetTime != currentTime) {
-            increment = 0;
-            lastIncrementResetTime = currentTime;
-        } else {
-            if (increment >= Identifier.MAX_INCREMENT) {
-                lastIncrementResetTime = waitUntilNextMillisecond(currentTime);
+    public long generateIdentifier() {
+        synchronized (this) {
+            long currentTime = getTimestamp();
+            if (lastIncrementResetTime != currentTime) {
                 increment = 0;
+                lastIncrementResetTime = currentTime;
+            } else {
+                if (increment >= Identifier.MAX_INCREMENT) {
+                    lastIncrementResetTime = waitUntilNextMillisecond(currentTime);
+                    increment = 0;
+                }
             }
+
+            long id = new Identifier(currentTime, serviceId, workerId, increment).getIdentifier();
+
+            increment++;
+            return id;
         }
-
-        long id = new Identifier(currentTime, serviceId, workerId, increment).getIdentifier();
-
-        increment++;
-        return id;
     }
 
     private long getTimestamp() {
         return Instant.now().toEpochMilli();
     }
 
-    private long waitUntilNextMillisecond(long currentTime) {
+    private long waitUntilNextMillisecond(final long startTime) {
+        long currentTime = startTime;
         while (currentTime == lastIncrementResetTime) {
             currentTime = getTimestamp();
         }
