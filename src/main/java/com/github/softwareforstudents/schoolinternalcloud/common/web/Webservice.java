@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.Executors;
 
 import com.github.softwareforstudents.schoolinternalcloud.common.annotations.Immutable;
 import com.github.softwareforstudents.schoolinternalcloud.common.annotations.NotNull;
@@ -24,6 +25,7 @@ class Webservice implements AutoCloseable {
     public Webservice(final int port, final int connectionBacklog) {
         try {
             httpServer = HttpServer.create(new InetSocketAddress(port), connectionBacklog);
+            httpServer.setExecutor(Executors.newCachedThreadPool());
             routes = new HashSet<>();
         } catch (IOException ex) {
             ex.printStackTrace();
