@@ -16,14 +16,14 @@ public class DiscoveryRoute extends RouteHandler {
     public final static String JSON = "application/json";
     public final static String CHARSET_NAME = "UTF-8";
 
-    private ServiceIdentifier identifier;
+    private final ServiceIdentifier identifier;
     
-    public DiscoveryRoute(ServiceIdentifier identifier) {
+    public DiscoveryRoute(final ServiceIdentifier identifier) {
         this.identifier = identifier;
 	}
 
 	@Override
-    public void handleGet(HttpExchange exchange) {
+    public void handleGet(final HttpExchange exchange) {
         try {
             exchange.getResponseHeaders().put(CONTENT_TYPE, List.of(JSON));
             exchange.sendResponseHeaders(HttpStatusCodes.OK.getStatusCode(), 0);

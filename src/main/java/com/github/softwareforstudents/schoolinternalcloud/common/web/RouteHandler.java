@@ -8,7 +8,7 @@ import com.sun.net.httpserver.HttpExchange;
 public abstract class RouteHandler implements HttpHandler {
 
     @Override
-    public void handle(HttpExchange exchange) {
+    public void handle(final HttpExchange exchange) {
         switch (exchange.getRequestMethod()) {
             case "GET":
                 handleGet(exchange);
@@ -39,35 +39,35 @@ public abstract class RouteHandler implements HttpHandler {
         exchange.close();
     }
 
-    public void handleGet(HttpExchange exchange) {
+    public void handleGet(final HttpExchange exchange) {
         defaultHandle(exchange);
     }
 
-    public void handlePost(HttpExchange exchange) {
+    public void handlePost(final HttpExchange exchange) {
         defaultHandle(exchange);
     }
 
-    public void handlePut(HttpExchange exchange) {
+    public void handlePut(final HttpExchange exchange) {
         defaultHandle(exchange);
     }
 
-    public void handleHead(HttpExchange exchange) {
+    public void handleHead(final HttpExchange exchange) {
         defaultHandle(exchange);
     }
 
-    public void handleDelete(HttpExchange exchange) {
+    public void handleDelete(final HttpExchange exchange) {
         defaultHandle(exchange);
     }
 
-    public void handlePatch(HttpExchange exchange) {
+    public void handlePatch(final HttpExchange exchange) {
         defaultHandle(exchange);
     }
 
-    public void handleOptions(HttpExchange exchange) {
+    public void handleOptions(final HttpExchange exchange) {
         defaultHandle(exchange);
     }
 
-    private void defaultHandle(HttpExchange exchange) {
+    private void defaultHandle(final HttpExchange exchange) {
         try {
             exchange.sendResponseHeaders(HttpStatusCodes.METHOD_NOT_ALLOWED.getStatusCode(), -1);
         } catch (IOException ex) {

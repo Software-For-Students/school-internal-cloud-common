@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.Executors;
 
 import com.github.softwareforstudents.schoolinternalcloud.common.annotations.Immutable;
 import com.github.softwareforstudents.schoolinternalcloud.common.annotations.NotNull;
@@ -17,13 +18,14 @@ class Webservice implements AutoCloseable {
     private HttpServer httpServer;
     private Set<String> routes;
 
-    public Webservice(int port) {
+    public Webservice(final int port) {
         this(port, DEFAULT_TCP_CONNECTION_BACKLOG);
     }
 
-    public Webservice(int port, int connectionBacklog) {
+    public Webservice(final int port, final int connectionBacklog) {
         try {
             httpServer = HttpServer.create(new InetSocketAddress(port), connectionBacklog);
+            httpServer.setExecutor(Executors.newCachedThreadPool());
             routes = new HashSet<>();
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -38,7 +40,7 @@ class Webservice implements AutoCloseable {
         httpServer.stop(SERVER_STOP_WAIT_DELAY);
     }
 
-    public boolean registerRoute(@NotNull String path, @NotNull RouteHandler handler) {
+    public boolean registerRoute(@NotNull final String path, @NotNull final RouteHandler handler) {
         try {
             httpServer.createContext(path, handler);
             routes.add(path);
@@ -48,7 +50,7 @@ class Webservice implements AutoCloseable {
         }
     }
 
-    public boolean unregisterRoute(@NotNull String path) {
+    public boolean unregisterRoute(@NotNull final String path) {
         try {
             httpServer.removeContext(path);
             routes.remove(path);

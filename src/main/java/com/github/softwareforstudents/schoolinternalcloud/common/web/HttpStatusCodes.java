@@ -63,7 +63,7 @@ public enum HttpStatusCodes {
 
     private int code;
 
-    private HttpStatusCodes(int code) {
+    private HttpStatusCodes(final int code) {
         this.code = code;
     }
 
@@ -71,7 +71,7 @@ public enum HttpStatusCodes {
         return this.code;
     }
 
-    public static HttpStatusCodes getByStatusCode(int code) {
+    public static HttpStatusCodes getByStatusCode(final int code) {
         return Stream.of(HttpStatusCodes.values()).filter(value -> value.getStatusCode() == code).findAny().orElse(UNKNOWN);
     }
 
