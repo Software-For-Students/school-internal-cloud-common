@@ -1,8 +1,8 @@
 package com.github.softwareforstudents.schoolinternalcloud.common.web;
 
+import com.github.softwareforstudents.schoolinternalcloud.common.service.ServiceIdentifier;
 import com.github.softwareforstudents.schoolinternalcloud.common.web.shared.DiscoveryRoute;
 import com.github.softwareforstudents.schoolinternalcloud.common.web.shared.HeartbeatRoute;
-import com.github.softwareforstudents.schoolinternalcloud.common.web.shared.ServiceIdentifier;
 
 public class SicWebservice extends Webservice {
 
