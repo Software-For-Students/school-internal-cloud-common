@@ -1,0 +1,28 @@
+{
+    // IMPORTANT: Not all values are needed for every database type!
+
+    // Declares the used type of database.
+    // Possible values: [MYSQL, SQLITE, MONGODB, REDIS]
+    "db_type": "SQLITE",
+
+    // Enter the hostname of the database if needed for the database type.
+    // Format: ["ip address" OR "hostname"] e.g. "127.0.0.1", or "localhost"
+    "db_hostname": "",
+
+    // Enter the port of the database if needed.
+    // Format: [port number] e.g. 7201
+    "db_port": -1,
+
+    // Put in the password to identify with the database if one is needed.
+    // Format: ["password"] e.g. "NF4%Abvw21."
+    "db_password": "",
+
+    // Fill in the username to access the database if needed.
+    // Format: ["username"] e.g. "FruotTrakko"
+    "db_username": "",
+
+    // Specify the path to store the database file in if needed.
+    // Format: ["path"] e.g. "/db/database.db"
+    "db_filepath": "/data/store.sqlite"
+
+}
