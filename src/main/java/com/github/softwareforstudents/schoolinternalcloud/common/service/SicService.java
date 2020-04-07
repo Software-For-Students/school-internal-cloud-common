@@ -19,10 +19,10 @@ public class SicService {
     private final static String WORKER_ID_CONFIG_KEY = "workerId";
     private final static int WORKER_ID_DEFAULT = 0;
 
-    private ServiceIdentifier serviceIdentifier;
-    private Configuration configuration;
+    private final ServiceIdentifier serviceIdentifier;
+    private final Configuration configuration;
 
-    public SicService(String[] cmdArgs) {
+    public SicService(final String[] cmdArgs) {
         this.configuration = new FileConfigurationParser().parse(Paths.get(".", CONFIG_PATH));
         this.configuration.join(new CommandlineConfigurationParser().parse(cmdArgs));
 

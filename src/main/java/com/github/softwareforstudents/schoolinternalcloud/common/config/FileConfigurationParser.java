@@ -18,7 +18,7 @@ public class FileConfigurationParser implements ConfigurationParser<Path> {
             "/service_config.jsonc" };
 
     @Override
-    public Configuration parse(Path parsingValue) {
+    public Configuration parse(final Path parsingValue) {
         File configDirectory = parsingValue.toFile();
 
         if (!configDirectory.exists()) {
@@ -41,13 +41,13 @@ public class FileConfigurationParser implements ConfigurationParser<Path> {
         return configuration;
     }
 
-    private void copyDefaultConfig(Path path) {
+    private void copyDefaultConfig(final Path path) {
         for (String filename : DEFAULT_CONFIGFILE_NAMES) {
             try {
                 Path targetFile = Path.of(path.toAbsolutePath().toString(), filename);
 
                 Files.createFile(targetFile);
-                Files.copy(getClass().getResourceAsStream(new StringBuffer(CONFIG_PACKAGE).append(filename).toString()),
+                Files.copy(getClass().getResourceAsStream(new StringBuilder(CONFIG_PACKAGE).append(filename).toString()),
                         targetFile, StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException ex) {
                 ex.printStackTrace();
@@ -55,7 +55,7 @@ public class FileConfigurationParser implements ConfigurationParser<Path> {
         }
     }
 
-    private Configuration parseFile(File file, Gson gson) {
+    private Configuration parseFile(final File file, final Gson gson) {
         Configuration configuration = new Configuration();
 
         try {

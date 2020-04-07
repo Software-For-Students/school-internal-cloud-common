@@ -15,7 +15,7 @@ public class Configuration {
         this(new HashMap<>());
     }
 
-    public Configuration(Map<String, Object> configuration) {
+    public Configuration(final Map<String, Object> configuration) {
         this.configuration = configuration;
     }
 

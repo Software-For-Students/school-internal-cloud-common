@@ -10,7 +10,7 @@ public class CommandlineConfigurationParser implements ConfigurationParser<Strin
     // option3 is equal to option3=true
 
     @Override
-    public Configuration parse(String[] parsingValue) {
+    public Configuration parse(final String[] parsingValue) {
         Map<String, Object> configuration = new HashMap<>();
 
         for (String option : parsingValue) {

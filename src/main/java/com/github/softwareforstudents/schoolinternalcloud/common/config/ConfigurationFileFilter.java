@@ -6,8 +6,8 @@ import java.io.FileFilter;
 public class ConfigurationFileFilter implements FileFilter {
 
     @Override
-    public boolean accept(File pathname) {
-        return (pathname.getName().endsWith(".jsonc") || pathname.getName().endsWith(".json"));
+    public boolean accept(final File pathname) {
+        return pathname.getName().endsWith(".jsonc") || pathname.getName().endsWith(".json");
     }
 
 }
