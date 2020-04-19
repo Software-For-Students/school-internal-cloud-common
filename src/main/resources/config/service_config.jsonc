@@ -1,0 +1,13 @@
+{
+    // Put in the name of the service how it should identify in the cluster.
+    // Format: ["serviceName"] e.g. "User Service"
+    "serviceName": "Default Service",
+
+    // Specify the service id according to the SIC service enumeration table.
+    // Format: [id] e.g. 5
+    "serviceId": 0,
+
+    // Fill in with a default worker id to assign to this instance.
+    // Format: [id] e.g. 2
+    "workerId": 0
+}

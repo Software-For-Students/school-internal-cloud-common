@@ -18,3 +18,12 @@ group = 'com.github.Software-For-Students'
 
 sourceCompatibility = 1.11
 targetCompatibility = 1.11
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.code.gson:gson:2.8.6'
+}
